@@ -2,7 +2,28 @@ body {
     margin: 20px 0;
 }
 
+form label {
+    width: 100%;
+}
+
 #app {
     width: 80%;
     margin: 0 auto;
+}
+
+.medium-img {
+    width: 100%;
+}
+
+.small-img {
+    width: 200px;
+}
+
+.second-row {
+    margin-top: 50px;
+}
+
+.special {
+    font-style: italic;
+    font-size: 11px;
 }

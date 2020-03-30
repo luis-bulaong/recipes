@@ -21,5 +21,9 @@ export default class Route
         this.app.get('/view/:id', (request, result) => {
             this.recipesController.index(request, result);
         });
+
+        this.app.get('/add', (request, result) => {
+            this.recipesController.index(request, result);
+        });
     }
 }

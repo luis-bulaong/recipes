@@ -11,9 +11,15 @@ const RecipeList = props => {
     useEffect(() => {
         getRecipes().then((response) => {
             response.map((recipe, index) => {
-                response[index].images.full = `${apiHost}/${recipe.images.full}`;
-                response[index].images.medium = `${apiHost}/${recipe.images.medium}`;
-                response[index].images.small = `${apiHost}/${recipe.images.small}`;
+                if ('images' in response[index] && Object.keys(response[index].images).length > 0) {
+                    response[index].images.full = `${apiHost}${recipe.images.full}`;
+                    response[index].images.medium = `${apiHost}${recipe.images.medium}`;
+                    response[index].images.small = `${apiHost}${recipe.images.small}`;
+                } else {
+                    response[index]["images"]["full"] = `http://localhost:3000/public/img/missing.png`;
+                    response[index]["images"]["medium"] = `http://localhost:3000/public/img/missing.png`;
+                    response[index]["images"]["small"] = `http://localhost:3000/public/img/missing.png`;
+                }
             });
 
             setRecipes(response);

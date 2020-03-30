@@ -23,12 +23,12 @@ const Table = props => {
                 return (
                     <tr key={recipe.uuid}>
                        <td>
-                           <img src={recipe.images.small} alt="recipe image"/>
+                           <img className="small-img" src={recipe.images.small} alt="recipe image"/>
                        </td>
                         <td>{recipe.title}</td>
                         <td>{recipe.description}</td>
                         <td>
-                            <button onClick={() => { goToRecipe(recipe.uuid); }} type="button" className="btn btn-info">View / Edit</button>
+                            <button onClick={() => { goToRecipe(recipe.uuid); }} type="button" className="btn btn-info">View</button>
                         </td>
                     </tr>
                 );

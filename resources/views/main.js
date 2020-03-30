@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import RecipeList from './recipe/index';
 import RecipeView from './recipe/view';
+import AddRecipe from './recipe/add';
 
 const Main = props => {
     return (
@@ -16,6 +17,9 @@ const Main = props => {
                         (props) => <RecipeView {...props} />
                     }
                 >
+                </Route>
+                <Route exact path="/add">
+                    <AddRecipe />
                 </Route>
             </Router>
         </Fragment>

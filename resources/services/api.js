@@ -14,3 +14,9 @@ export function getRecipeById(id) {
         return response.data;
     });
 }
+
+export function getSpecials() {
+    return axios.get(`${apiHost}/specials`).then(function(response) {
+        return response.data;
+    });
+}
