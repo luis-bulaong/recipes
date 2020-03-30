@@ -1,0 +1,31 @@
+{
+  "name": "recipes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build-server": "webpack --config webpack.server.config.js --mode development",
+    "build-web": "webpack --config webpack.web.config.js --mode development",
+    "build": "npm run build-web && npm run build-server",
+    "start:server": "node server.js"
+  },
+  "author": "Luis Bulaong",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/preset-react": "^7.9.4",
+    "axios": "^0.18",
+    "express": "^4.17.1",
+    "html-webpack-plugin": "^4.0.3",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.1.2",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "babel-loader": "^8.1.0"
+  }
+}
