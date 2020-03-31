@@ -10,6 +10,10 @@ const RecipeView = props => {
     const [recipe, setRecipe] = useState({});
     const [specials, setSpecials] = useState({});
 
+    const goToList = () => {
+        window.location.href = `http://localhost:3000`;
+    }
+
     useEffect(() => {
         getSpecials().then((response) => {
             setSpecials(response);
@@ -34,10 +38,17 @@ const RecipeView = props => {
     }, []);
 
     return (
-        <Profile
-            recipe={recipe}
-            specials={specials}
-        />
+        <Fragment>
+            <div>
+                <div className="d-flex justify-content-end bd-highlight mb-3">
+                    <input className="btn btn-primary" type="submit" value="Go back to List" onClick={goToList} />
+                </div>
+            </div>
+            <Profile
+                recipe={recipe}
+                specials={specials}
+            />
+        </Fragment>
     );
 }
 

@@ -20,3 +20,10 @@ export function getSpecials() {
         return response.data;
     });
 }
+
+export function addRecipe(data) {
+    return axios.post(`${apiHost}/recipes`, data).then(function(response) {
+        return response.data;
+    });
+}
+

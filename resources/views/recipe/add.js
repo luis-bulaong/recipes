@@ -1,4 +1,6 @@
 import React, { Fragment, useState } from 'react';
+import moment from 'moment';
+import { addRecipe } from '../../services/api';
 
 const AddRecipe = props => {
 
@@ -8,13 +10,40 @@ const AddRecipe = props => {
     const [preparation, setPreparation] = useState("");
     const [cooking, setCooking] = useState("");
   
-    const handleSubmit = (evt) => {
-        evt.preventDefault();
+    const handleSubmit = (event) => {
+        event.preventDefault();
         
+        const recipe = {
+            title: title,
+            description: description,
+            servings: serving,
+            prepTime: preparation,
+            cookTime: cooking,
+            images: {},
+            ingredients: [],
+            directions: [],
+            postDate: moment().format('MM/DD/YYYY hh:mm:ss A'),
+            editDate: moment().format('MM/DD/YYYY hh:mm:ss A'),
+        }
+
+        addRecipe(recipe).then(response => {
+            if (Object.keys(response).length > 0 && 'uuid' in response) {
+                window.location.href = `http://localhost:3000/view/${response.uuid}`;
+            }
+        });
+    }
+
+    const goToList = () => {
+        window.location.href = `http://localhost:3000`;
     }
 
     return (
         <Fragment>
+            <div>
+                <div className="d-flex justify-content-end bd-highlight mb-3">
+                    <input className="btn btn-primary" type="submit" value="Go back to List" onClick={goToList} />
+                </div>
+            </div>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label>

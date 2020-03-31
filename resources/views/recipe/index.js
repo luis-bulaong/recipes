@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Fragment } from 'react';
 import Table from '../components/table';
 import { getRecipes } from '../../services/api';
 import apiConfig from '../../config/api';
@@ -7,6 +7,10 @@ const RecipeList = props => {
 
     const [recipes, setRecipes] = useState({});
     const apiHost = apiConfig.host;
+
+    const goToAdd = () => {
+        window.location.href = `http://localhost:3000/add`;
+    }
 
     useEffect(() => {
         getRecipes().then((response) => {
@@ -27,10 +31,17 @@ const RecipeList = props => {
     }, []);
 
     return (
-        <Table
-            tableName="Recipes"
-            tableData={recipes}
-        />
+        <Fragment>
+            <div>
+                <div className="d-flex justify-content-end bd-highlight mb-3">
+                    <input className="btn btn-primary" type="submit" value="Add Recipe" onClick={goToAdd} />
+                </div>
+            </div>
+            <Table
+                tableName="Recipes"
+                tableData={recipes}
+            />
+        </Fragment>
     );
 }
 
