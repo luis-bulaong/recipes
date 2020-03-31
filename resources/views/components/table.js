@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react';
+import serverConfig from '../../config/server';
 
 const Table = props => {
 
     const goToRecipe = uuid => {
-        window.location.href = `http://localhost:3000/view/${uuid}`;
+        window.location.href = `http://${serverConfig.host}:${serverConfig.port}/view/${uuid}`;
     }
 
     const renderTableHeader = () => {

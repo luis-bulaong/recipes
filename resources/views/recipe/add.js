@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import moment from 'moment';
 import { addRecipe } from '../../services/api';
+import serverConfig from '../../config/server';
 
 const AddRecipe = props => {
 
@@ -28,13 +29,13 @@ const AddRecipe = props => {
 
         addRecipe(recipe).then(response => {
             if (Object.keys(response).length > 0 && 'uuid' in response) {
-                window.location.href = `http://localhost:3000/view/${response.uuid}`;
+                window.location.href = `http://${serverConfig.host}:${serverConfig.port}/view/${response.uuid}`;
             }
         });
     }
 
     const goToList = () => {
-        window.location.href = `http://localhost:3000`;
+        window.location.href = `http://${serverConfig.host}:${serverConfig.port}`;
     }
 
     return (

@@ -2,6 +2,7 @@ import React, { useEffect, useState, Fragment } from 'react';
 import { getRecipeById, getSpecials } from '../../services/api';
 import apiConfig from '../../config/api';
 import Profile from '../components/profile';
+import serverConfig from '../../config/server';
 
 const RecipeView = props => {
     
@@ -11,7 +12,7 @@ const RecipeView = props => {
     const [specials, setSpecials] = useState({});
 
     const goToList = () => {
-        window.location.href = `http://localhost:3000`;
+        window.location.href = `http://${serverConfig.host}:${serverConfig.port}`;
     }
 
     useEffect(() => {
@@ -27,9 +28,9 @@ const RecipeView = props => {
                     response.images.medium = `${apiHost}${response.images.medium}`;
                     response.images.small = `${apiHost}${response.images.small}`;
                 } else {
-                    response["images"]["full"] = `http://localhost:3000/public/img/missing.png`;
-                    response["images"]["medium"] = `http://localhost:3000/public/img/missing.png`;
-                    response["images"]["small"] = `http://localhost:3000/public/img/missing.png`;
+                    response["images"]["full"] = `http://${serverConfig.host}:${serverConfig.port}/public/img/missing.png`;
+                    response["images"]["medium"] = `http://${serverConfig.host}:${serverConfig.port}/public/img/missing.png`;
+                    response["images"]["small"] = `http://${serverConfig.host}:${serverConfig.port}/public/img/missing.png`;
                 }
 
                 setRecipe(response);

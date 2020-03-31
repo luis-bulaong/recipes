@@ -8,5 +8,5 @@
 - run npm install start:server
 
 ## How to access
-- Accessible through `http://localhost:3000`
+- Accessible through `http://127.0.0.1:3000`
 

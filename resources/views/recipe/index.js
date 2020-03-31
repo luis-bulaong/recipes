@@ -2,6 +2,7 @@ import React, { useEffect, useState, Fragment } from 'react';
 import Table from '../components/table';
 import { getRecipes } from '../../services/api';
 import apiConfig from '../../config/api';
+import serverConfig from '../../config/server';
 
 const RecipeList = props => {
 
@@ -9,7 +10,7 @@ const RecipeList = props => {
     const apiHost = apiConfig.host;
 
     const goToAdd = () => {
-        window.location.href = `http://localhost:3000/add`;
+        window.location.href = `http://${serverConfig.host}:${serverConfig.port}/add`;
     }
 
     useEffect(() => {
@@ -20,9 +21,9 @@ const RecipeList = props => {
                     response[index].images.medium = `${apiHost}${recipe.images.medium}`;
                     response[index].images.small = `${apiHost}${recipe.images.small}`;
                 } else {
-                    response[index]["images"]["full"] = `http://localhost:3000/public/img/missing.png`;
-                    response[index]["images"]["medium"] = `http://localhost:3000/public/img/missing.png`;
-                    response[index]["images"]["small"] = `http://localhost:3000/public/img/missing.png`;
+                    response[index]["images"]["full"] = `http://${serverConfig.host}:${serverConfig.port}/public/img/missing.png`;
+                    response[index]["images"]["medium"] = `http://${serverConfig.host}:${serverConfig.port}/public/img/missing.png`;
+                    response[index]["images"]["small"] = `http://${serverConfig.host}:${serverConfig.port}/public/img/missing.png`;
                 }
             });
 
