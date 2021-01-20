@@ -5,7 +5,7 @@
 - Clone the API (https://bitbucket.org/crescendocollective/frontend-api-skills-test.git)
 - Follow the steps to run the API
 - cd to recipes folder then run npm install
-- run npm install start:server
+- run npm run start:server
 
 ## How to access
 - Accessible through `http://127.0.0.1:3000`
